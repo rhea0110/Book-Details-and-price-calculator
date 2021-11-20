@@ -1,0 +1,183 @@
+//I have taken the 1st class as Date class.
+public class Date {
+
+    private int dd;
+    private int mm;
+    private int yy;
+
+    public Date(int dd, int mm, int yy) {
+        this.dd = dd;
+        this.mm = mm;
+        this.yy = yy;
+    }
+
+    public int getDd() {
+        return dd;
+    }
+
+    public void setDd(int dd) {
+        this.dd = dd;
+    }
+
+    public int getMm() {
+        return mm;
+    }
+
+    public void setMm(int mm) {
+        this.mm = mm;
+    }
+
+    public int getYy() {
+        return yy;
+    }
+
+    public void setYy(int yy) {
+        this.yy = yy;
+    }
+
+    public String toString(){
+        return "Date - " + dd + "/" + mm + "/" + yy;
+    }
+}
+
+// 2nd class as Author class
+public  class Author {
+    private int authorId;
+    private String authorName;
+
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    @Override
+    public String toString() {
+        return "Author [authorId=" + authorId + ", authorName=" + authorName + "]";
+    }
+
+    public Author(int authorId, String authorName)
+    {
+        this.authorId=authorId;
+        this.authorName=authorName;
+    }
+}
+
+// 3rd class as Book class
+
+public class Book {
+    private int bookId;
+    private String bookName;
+    private float bookPrice;
+    private Author a;
+    private Date published;
+
+    public Book(int bookId,String bookName,float bookPrice,Author a,Date published)
+    {
+        this.bookId=bookId;
+        this.bookName=bookName;
+        this.bookPrice=bookPrice;
+        this.a=a;
+        this.published=published;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Book [bookId=" + bookId + ", bookName=" + bookName + ", bookPrice=" + bookPrice + ", a=" + a
+                + ", published=" + published + "]";
+    }
+
+
+    public Date getPublished() {
+        return published;
+    }
+
+
+    public void setPublished(Date published) {
+        this.published = published;
+    }
+
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public float getBookPrice() {
+        return bookPrice;
+    }
+
+    public void setBookPrice(float bookPrice) {
+        this.bookPrice = bookPrice;
+    }
+
+    public Author getA() {
+        return a;
+    }
+
+    public void setA(Author a) {
+        this.a = a;
+    }
+
+
+    public void printBookDetails(String bookName)
+    {
+        if(this.bookName==bookName)
+        {
+            System.out.println(this);
+        }
+        else
+        {
+            System.out.println("Book not Exists");
+        }
+    }
+
+    public float bookOffers(String bookName)
+    {
+        if(this.bookName==bookName &&(this.published.getYy()>=2010 && this.published.getYy()<=2021))
+        {
+            float price = this.bookPrice;
+            price = price - (0.25f*price);
+            return price;
+        }
+        else {
+            System.out.println("Book Not Exists or Book Published Year not Exists between 2010 to 2021");
+        }
+        return 0.0f;
+
+    }
+}
+
+// 4th and the foinal class is Main class
+
+public class Main {
+
+    public static void main(String[] args) {
+        Book b1 = new Book(1,"Secrets",250.0f,new Author(1008,"Rohnda Burn"),new Date(12,12,2016));
+        b1.printBookDetails("Secrets");
+        System.out.println(b1.bookOffers("Secrets"));
+    }
+}
+// you can apply changes to main method to print about other books.
