@@ -1,0 +1,2 @@
+# Book-Details-and-price-calculator
+This program will have 3 classes namely - Date, Book, Author &amp; a Main class. The Author class will have 2 constraints - Author Id and Name, Book class will have 3 constraints - Book Name, ID, price. Here if the book exists the program will return all the details of the book also if book is published from 2010 to 2021 then additional 25% discount will be applied in purchasing of the book.
